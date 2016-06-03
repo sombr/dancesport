@@ -1,3 +1,6 @@
 *.class
 target
 .jsweet
+.classpath
+.project
+.settings
