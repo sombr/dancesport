@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>sombr.dancesport</groupId>
+    <artifactId>skating</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Dancesport Skating system</name>
+    <description>Authoritative Skating System implementation</description>
+    <developers>
+        <developer>
+            <id>sombr</id>
+            <name>Serge Toropov</name>
+        </developer>
+    </developers>
+    <licenses>
+        <license>
+            <name>GNU GENERAL PUBLIC LICENSE, Version 2</name>
+            <url>https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>jsweet-plugins-release</id>
+            <name>plugins-release</name>
+            <url>http://repository.jsweet.org/artifactory/plugins-release-local</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>jsweet-central</id>
+            <name>libs-release</name>
+            <url>http://repository.jsweet.org/artifactory/libs-release-local</url>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <!-- <fork>true</fork> -->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jsweet</groupId>
+                <artifactId>jsweet-maven-plugin</artifactId>
+                <version>1.1.0</version>
+                <configuration>
+                    <tsOut>target/ts</tsOut>
+                    <outDir>target/js</outDir>
+                    <candiesJsOut>target/webapp</candiesJsOut>
+                    <targetVersion>ES3</targetVersion>
+                    <bundle>true</bundle>
+                    <bundlesDirectory>target/bundle</bundlesDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-js</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>jsweet</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.4.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jsweet.candies</groupId>
+            <artifactId>jsweet-core</artifactId>
+            <version>1.1.0-20160525</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jsweet.candies</groupId>
+            <artifactId>j4ts</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+    </dependencies>
+</project>
